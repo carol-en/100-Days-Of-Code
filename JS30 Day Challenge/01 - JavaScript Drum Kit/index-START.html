@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Drum Kit</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <div class="keys">
+    <div data-key="97" class="key">
+      <kbd>A</kbd>
+      <span class="sound">clap</span>
+    </div>
+    <div data-key="115" class="key">
+      <kbd>S</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div data-key="100" class="key">
+      <kbd>D</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="102" class="key">
+      <kbd>F</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="103" class="key">
+      <kbd>G</kbd>
+      <span class="sound">boom</span>
+    </div>
+    <div data-key="104" class="key">
+      <kbd>H</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="106" class="key">
+      <kbd>J</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div data-key="107" class="key">
+      <kbd>K</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div data-key="108" class="key">
+      <kbd>L</kbd>
+      <span class="sound">tink</span>
+    </div>
+  </div>
+
+  <audio data-key="97" src="sounds/clap.wav"></audio>
+  <audio data-key="115" src="sounds/hihat.wav"></audio>
+  <audio data-key="100" src="sounds/kick.wav"></audio>
+  <audio data-key="102" src="sounds/openhat.wav"></audio>
+  <audio data-key="103" src="sounds/boom.wav"></audio>
+  <audio data-key="104" src="sounds/ride.wav"></audio>
+  <audio data-key="106" src="sounds/snare.wav"></audio>
+  <audio data-key="107" src="sounds/tom.wav"></audio>
+  <audio data-key="108" src="sounds/tink.wav"></audio>
+
+<script type="text/javascript">
+  
+    // target shown keys
+      function theKeys(e) {
+        //target pressed key
+        var oh = Number(e.keyCode);
+        // console.log(oh); // print pressed key
+
+        //target div data-key
+        var anArr = document.getElementsByClassName('key');
+         var n = Number(Math.ceil(Math.random() * 9));
+         var nu = [0, 1, 2, 3, 4, 5, 6 ,7 ,8 , 9];
+         // console.log(n);
+        var dataKey = Number(anArr[n].dataset.key);
+        // console.log(dataKey);
+
+          if(oh === dataKey) {
+            console.log("It Matches!");
+          } else { return };
+
+
+
+        // if(oh === dataKey) {
+        //   console.log("<div data-key= " + dataKey);
+        // } else {
+        //   console.log("Didn't work, sorry :/");
+        // }
+        
+        
+        // var text = document.querySelector(`div[data-key="${oh}"]`);
+        // console.log(text);
+
+      };
+
+    window.addEventListener("keypress", theKeys );
+
+    // have them play sound
+    // add playing class
+    //remove playing class
+
+</script>
+
+
+</body>
+</html>
